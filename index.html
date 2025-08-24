@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Birthday Cake</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: #ffb6c1;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Cake base */
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 120px;
+      background: #8b4513;
+      border-radius: 10px;
+      box-shadow: inset 0 -15px #5a2e0f;
+      animation: drop 1s ease-out forwards;
+      transform: translateY(-300px);
+    }
+
+    /* Cream layer */
+    .cake::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: #fff;
+      border-radius: 10px 10px 0 0;
+      box-shadow: inset 0 -8px #fdd;
+    }
+
+    /* Candle */
+    .candle {
+      position: absolute;
+      top: -55px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 50px;
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    /* Flame */
+    .flame {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 25px;
+      background: orange;
+      border-radius: 50% 50% 50% 50%;
+      animation: flicker 0.3s infinite alternate;
+      box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.6);
+    }
+
+    /* Animation for cake drop */
+    @keyframes drop {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    /* Flickering flame */
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+      100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    p {
+      margin-top: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #4b2c20;
+    }
+  </style>
+</head>
+<body>
+  <div class="cake">
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+  <h2>Happy Birthday! 🎉</h2>
+  <p>Untuk: <span id="nama">Lovie</span></p>
+</body>
+</html>
